@@ -10,7 +10,13 @@ TARGET1=b
 SRC1=	1-main.c \
 		1-djb2.c
 
-all:	0 1
+TARGET2=c
+SRC2=	2-main.c \
+		1-djb2.c \
+		2-key_index.c
+
+
+all:	0 1 2
 
 clean:
 	$(RM) *~ \#*\# \.\#* \
@@ -29,3 +35,9 @@ re:	clean all
 
 1-dev:
 	$(CC) $(SRC1) -o $(TARGET1)
+
+2:
+	$(CC) $(CFLAGS) $(SRC2) -o $(TARGET2)
+
+2-dev:
+	$(CC) $(SRC2) -o $(TARGET2)
