@@ -2,20 +2,20 @@
 
 hash_table_t *hash_table_create(unsigned long int size)
 {
-    hash_table_t *h = malloc(sizeof(*h));
+	hash_table_t *h = malloc(sizeof(*h));
 
-    if (h == NULL)
-    {
-	return (NULL);
+	if (h == NULL)
+	{
+		return (NULL);
     }
 
-    h->size = size;
-    h->array = malloc(sizeof(*(h->array)) * size);
+	h->size = size;
+	h->array = malloc(sizeof(*(h->array)) * size);
 
-    if (h->array == NULL)
-    {
-	return (NULL);
-    }
+	if (h->array == NULL)
+	{
+		return (NULL);
+	}
 
-    return (h);
+	return (h);
 }
