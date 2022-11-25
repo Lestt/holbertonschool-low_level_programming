@@ -1,6 +1,22 @@
 #include <stdio.h>
 #include "hash_tables.h"
 
+void print_list(hash_node_t *head)
+{
+	printf("{");
+	while(head != NULL)
+	{
+		printf("'%s': '%s'", head->key, head->value);
+		head = head->next;
+		if (head == NULL)
+		{
+			break;
+		}
+		printf(", ");
+	}
+	printf("}\n");
+}
+
 void hash_table_print(const hash_table_t *ht)
 {
 	unsigned long int i;
@@ -14,18 +30,12 @@ void hash_table_print(const hash_table_t *ht)
 
 	while (i < ht->size)
 	{
-		printf("{");
 		head = ht->array[i];
-		while(head != NULL)
-		{
-			printf("'%s': '%s'", head->key, head->value);
-			if (head->next != NULL)
-			{
-				printf(", ");
-			}
-			head = head->next;
-		}
-		printf("}\n");
 		i = i + 1;
+		if (head == NULL)
+		{
+			continue;
+		}
+		print_list(head);
 	}
 }
