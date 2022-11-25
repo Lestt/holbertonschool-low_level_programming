@@ -7,12 +7,11 @@ void print_list(hash_node_t *head)
 	while(head != NULL)
 	{
 		printf("'%s': '%s'", head->key, head->value);
-		head = head->next;
-		if (head == NULL)
+		if (head->next != NULL)
 		{
-			break;
+			printf(", ");
 		}
-		printf(", ");
+		head = head->next;
 	}
 	printf("}\n");
 }
