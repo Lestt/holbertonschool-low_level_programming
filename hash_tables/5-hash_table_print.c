@@ -3,7 +3,6 @@
 
 void print_list(hash_node_t *head)
 {
-	printf("{");
 	while(head != NULL)
 	{
 		printf("'%s': '%s'", head->key, head->value);
@@ -13,7 +12,6 @@ void print_list(hash_node_t *head)
 		}
 		head = head->next;
 	}
-	printf("}\n");
 }
 
 void hash_table_print(const hash_table_t *ht)
@@ -26,15 +24,15 @@ void hash_table_print(const hash_table_t *ht)
 	{
 		return;
 	}
-
+	printf("{");
 	while (i < ht->size)
 	{
 		head = ht->array[i];
-		i = i + 1;
-		if (head == NULL)
+		if (head != NULL)
 		{
-			continue;
+			print_list(head);
 		}
-		print_list(head);
+		i = i + 1;
 	}
+	printf("}\n");
 }
