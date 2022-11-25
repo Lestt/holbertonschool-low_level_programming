@@ -1,4 +1,4 @@
-#include <strings.h>
+#include <string.h>
 #include <stdio.h>
 #include "hash_tables.h"
 
@@ -25,10 +25,8 @@ int hash_table_set(hash_table_t *ht, const char *key, const char *value)
 	{
 		return (0);
 	}
-	exit(1);
+
 	index = key_index((const unsigned char *)key, ht->size);
-	printf("%ld\n", index);
-	exit(1);
 	collision = ht->array[index];
 	node_with_same_key = search_key(collision, key);
 
@@ -47,11 +45,7 @@ int hash_table_set(hash_table_t *ht, const char *key, const char *value)
 	new->key = strdup(key);
 	new->value = strdup(value);
 	new->next = collision;
-
-	if (collision == NULL)
-	{
-		ht->array[index] = new;
-	}
+	ht->array[index] = new;
 
 	return (1);
 }
