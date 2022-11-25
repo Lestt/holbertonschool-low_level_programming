@@ -10,6 +10,7 @@ hash_node_t *search_key(hash_node_t *head, const char *key)
 		{
 			return (head);
 		}
+		head = head->next;
 	}
 	return (NULL);
 }
