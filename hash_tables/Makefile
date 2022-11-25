@@ -15,12 +15,18 @@ SRC2=	2-main.c \
 		1-djb2.c \
 		2-key_index.c
 
+TARGET3=d
+SRC3=	3-main.c \
+		0-hash_table_create.c \
+		1-djb2.c \
+		2-key_index.c \
+		3-hash_table_set.c
 
-all:	0 1 2
+all:	0 1 2 3
 
 clean:
 	$(RM) *~ \#*\# \.\#* \
-	$(TARGET0) $(TARGET1)
+	$(TARGET0) $(TARGET1) $(TARGET2) ${TARGET3}
 
 re:	clean all
 
@@ -41,3 +47,9 @@ re:	clean all
 
 2-dev:
 	$(CC) $(SRC2) -o $(TARGET2)
+
+3:
+	$(CC) $(CFLAGS) $(SRC3) -o $(TARGET3)
+
+3-dev:
+	$(CC) $(SRC3) -o $(TARGET3)
