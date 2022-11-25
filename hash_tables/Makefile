@@ -22,11 +22,29 @@ SRC3=	3-main.c \
 		2-key_index.c \
 		3-hash_table_set.c
 
-all:	0 1 2 3
+TARGET4=e
+SRC4=	4-main.c \
+		0-hash_table_create.c \
+		1-djb2.c \
+		2-key_index.c \
+		3-hash_table_set.c \
+		4-hash_table_get.c
+
+
+TARGET5=f
+SRC5=	5-main.c \
+		0-hash_table_create.c \
+		1-djb2.c \
+		2-key_index.c \
+		3-hash_table_set.c \
+		5-hash_table_print.c
+
+
+all:	0 1 2 3 4 5
 
 clean:
 	$(RM) *~ \#*\# \.\#* \
-	$(TARGET0) $(TARGET1) $(TARGET2) ${TARGET3}
+	$(TARGET0) $(TARGET1) $(TARGET2) $(TARGET3) $(TARGET4) $(TARGET5)
 
 re:	clean all
 
@@ -53,3 +71,15 @@ re:	clean all
 
 3-dev:
 	$(CC) $(SRC3) -o $(TARGET3)
+
+4:
+	$(CC) $(CFLAGS) $(SRC4) -o $(TARGET4)
+
+4-dev:
+	$(CC) $(SRC4) -o $(TARGET4)
+
+5:
+	$(CC) $(CFLAGS) $(SRC5) -o $(TARGET5)
+
+5-dev:
+	$(CC) $(SRC5) -o $(TARGET5)
